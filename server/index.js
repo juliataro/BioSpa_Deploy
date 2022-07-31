@@ -7,7 +7,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://juliataro.eu:30", "http://juliataro.eu"],
 };
 // Allowing to make calls from frontend to backend api
 app.use(cors(corsOptions));

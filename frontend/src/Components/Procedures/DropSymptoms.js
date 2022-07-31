@@ -24,13 +24,14 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 function DropSymptoms(props) {
   const [symptoms, setSymptoms] = useState([]);
   const { symptomsValue, setSymptomsValue } = useContext(GlobalContext); // Catches chosen Symptoms in Dropdown
+  const axiosInstance = axios.create({
+    baseUrl: process.env.REACT_APP_API_URL,
+  });
 
   // Fetch Diseases in dropdown on Page load
   useEffect(() => {
     const loadData = async () => {
-      const response = await axios.get(
-        "http://localhost:4000/api/symptoms/all/et"
-      );
+      const response = await axiosInstance.get("symptoms/all/et");
       setSymptoms(response.data);
     };
     loadData();

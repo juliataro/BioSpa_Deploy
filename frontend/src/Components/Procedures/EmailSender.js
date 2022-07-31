@@ -36,6 +36,11 @@ function EmailSender() {
     // Email validation
     const regexTest = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/g);
 
+    // Axios instance
+    const axiosInstance = axios.create({
+      baseUrl: process.env.REACT_APP_API_URL,
+    });
+
     //  Form validation
     name === "" ? setNameError(true) : setName(name);
     email === "" ? setEmailEmpty(true) : setEmail(email);
@@ -51,9 +56,9 @@ function EmailSender() {
       // Adding array of procedures to Rest Api, if Checkbox is checked - add to Api
       console.log({ email, message, name, subject }); // TODO see the object in console
       // Rest Api with query parameters
-      const response = await axios
+      const response = await axiosInstance
         .post(
-          `http://localhost:4000/api/mail/sendmail?name=${name}&email=${email}&subject=${subject}&message=${message}&procedures=${chosenProcedures}`
+          `mail/sendmail?name=${name}&email=${email}&subject=${subject}&message=${message}&procedures=${chosenProcedures}`
         )
         .then((res) => {
           setLetter(response.data);

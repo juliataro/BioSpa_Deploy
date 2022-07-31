@@ -22,14 +22,17 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 //  TODO Extract list of diseases from db into dropdown list
 function DropDiseases() {
   const [diseases, setDiseases] = useState([]);
-  const { diseasesValue, setDiseasesValue } = useContext(GlobalContext); // Catches chosen Diseases in Dropdown
+  const { diseasesValue, setDiseasesValue } = useContext(GlobalContext);
+  const axiosInstance = axios.create({
+    baseUrl: process.env.REACT_APP_API_URL,
+  });
+
+  // Catches chosen Diseases in Dropdown
 
   // Fetch Diseases in dropdown on Page load
   useEffect(() => {
     const loadData = async () => {
-      const response = await axios.get(
-        "http://localhost:4000/api/diseases/all/et"
-      );
+      const response = await axiosInstance.get("diseases/all/et");
       setDiseases(response.data);
     };
     loadData();
@@ -85,7 +88,8 @@ function DropDiseases() {
           options={diseases} //useState for entity
           disableCloseOnSelect
           getOptionLabel={(option) => `${option.dis_title_et}`}
-          variant="outlined"
+          vari
+          ant="outlined"
           className={classes.focus}
           // onChange={handleChange}
           renderOption={(props, option, { setDiseasesValue }) => (
