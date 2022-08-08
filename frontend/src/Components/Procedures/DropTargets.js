@@ -25,7 +25,7 @@ function DropTargets() {
   const [targets, setTargets] = useState([]);
   const { targetsValue, setTargetsValue } = useContext(GlobalContext); // Catches chosen Targets in Dropdown
   const axiosInstance = axios.create({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseURL: process.env.REACT_APP_API_URL,
   });
 
   // Fetch Diseases in dropdown on Page load

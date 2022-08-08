@@ -38,7 +38,7 @@ function EmailSender() {
 
     // Axios instance
     const axiosInstance = axios.create({
-      baseUrl: process.env.REACT_APP_API_URL,
+      baseURL: process.env.REACT_APP_API_URL,
     });
 
     //  Form validation

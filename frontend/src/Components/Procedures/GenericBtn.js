@@ -24,7 +24,7 @@ const GenericBtn = (props) => {
   const { pricesValue, setPricesValue } = useContext(GlobalContext); // Catches chosen Prices in Slider
   const { procedures, setProcedures } = useContext(GlobalContext); // Catches chosen Prices in Slider
   const axiosInstance = axios.create({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseURL: process.env.REACT_APP_API_URL,
   });
   // Procedures on all filters
   const loadProcTargetsSymptoms = async () => {

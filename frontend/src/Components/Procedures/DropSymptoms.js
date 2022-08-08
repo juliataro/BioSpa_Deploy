@@ -25,7 +25,7 @@ function DropSymptoms(props) {
   const [symptoms, setSymptoms] = useState([]);
   const { symptomsValue, setSymptomsValue } = useContext(GlobalContext); // Catches chosen Symptoms in Dropdown
   const axiosInstance = axios.create({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseURL: process.env.REACT_APP_API_URL,
   });
 
   // Fetch Diseases in dropdown on Page load
