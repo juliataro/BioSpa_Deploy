@@ -17,6 +17,7 @@ import Grid from "@mui/material/Grid";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const { REACT_APP_API_URL } = process.env;
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -24,14 +25,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 function DropTargets() {
   const [targets, setTargets] = useState([]);
   const { targetsValue, setTargetsValue } = useContext(GlobalContext); // Catches chosen Targets in Dropdown
-  const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
 
   // Fetch Diseases in dropdown on Page load
   useEffect(() => {
     const loadData = async () => {
-      const response = await axiosInstance.get("targets/all/et");
+      const response = await axios.get(`${REACT_APP_API_URL}/targets/all/et`);
       setTargets(response.data);
     };
     loadData();

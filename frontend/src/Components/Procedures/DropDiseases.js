@@ -14,27 +14,26 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // For fetching data
 import Grid from "@mui/material/Grid";
-
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const { REACT_APP_API_URL } = process.env;
+
 //////////////////////////////////////////////////////////////////////////////
 
 //  TODO Extract list of diseases from db into dropdown list
 function DropDiseases() {
   const [diseases, setDiseases] = useState([]);
   const { diseasesValue, setDiseasesValue } = useContext(GlobalContext);
-  const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
 
-  // Catches chosen Diseases in Dropdown
+  // const axiosInstance = axios.create({
+  //   baseURL: process.env.REACT_APP_API_URL,
+  // });
 
-  // Fetch Diseases in dropdown on Page load
+  async function loadData() {
+    const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
+    setDiseases(response.data);
+  }
   useEffect(() => {
-    const loadData = async () => {
-      const response = await axiosInstance.get("diseases/all/et");
-      setDiseases(response.data);
-    };
     loadData();
   }, [setDiseases]);
 
@@ -88,8 +87,7 @@ function DropDiseases() {
           options={diseases} //useState for entity
           disableCloseOnSelect
           getOptionLabel={(option) => `${option.dis_title_et}`}
-          vari
-          ant="outlined"
+          variant="outlined"
           className={classes.focus}
           // onChange={handleChange}
           renderOption={(props, option, { setDiseasesValue }) => (
@@ -111,7 +109,7 @@ function DropDiseases() {
             />
           )}
         />
-
+        {/** TODO Tooltip */}
         <ReactTooltip
           // Tooltip
           className={classes.tooltip}

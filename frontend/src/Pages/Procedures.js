@@ -76,10 +76,10 @@ export const Procedures = () => {
             </Typography>
             {/* INTRO TEXT */}
             <Typography variant="h6" component="div" gutterBottom mt={5} mb={3}>
-              Oleme ravipaastumisele spetsialiseerundu loodusravi ja
-              -spaakeskus. Pakume tõhusat võimalust vabanemiseks
-              tervistkahjustavatest harjumustest - teie teekond liigsete
-              ravimiteta tervisliku elu poole algab siit!
+              Oleme ravipaastumisele spetsialiseerundu loodusravi ja spaakeskus.
+              Pakume tõhusat võimalust vabanemiseks tervistkahjustavatest
+              harjumustest &#8212; teie teekond liigsete ravimiteta tervisliku
+              elu poole algab siit!
             </Typography>
             <Typography variant="h6" component="div" gutterBottom>
               Pakume võimalust teha lisahoolitsuste eelvalik vastavalt oma
