@@ -74,13 +74,13 @@ const headCells = [
     id: "proc_duration",
     numeric: true,
     disablePadding: false,
-    label: "Kestvus (m)",
+    label: "Kestvus (m)",
   },
   {
     id: "proc_price",
     numeric: true,
     disablePadding: false,
-    label: "Hind (€)",
+    label: "Hind (€)",
   },
 ];
 
@@ -209,13 +209,7 @@ EnhancedTableToolbar.propTypes = {
 
 export default function EnhancedTable() {
   const [order, setOrder] = React.useState("asc");
-  // TODO for accendint used database
-  const [orderBy, setOrderBy] = React.useState([
-    "proc_price",
-    "proc_title_et",
-    "proc_descr_et",
-    "proc_duration",
-  ]);
+  const [orderBy, setOrderBy] = React.useState("name");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const { procedures, setProcedures } = useContext(GlobalContext); // Catches chosen Procedures in Tabel
@@ -260,10 +254,10 @@ export default function EnhancedTable() {
         proceduresValue.slice(selectedIndex + 1)
       );
     }
+
     setProceduresValue(newSelected);
     console.log(setProcedures);
   };
-
   // Changing pages
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -299,7 +293,9 @@ export default function EnhancedTable() {
           color="inherit"
           variant="h6"
           component="div"
-        ></Typography>
+        >
+          Tee valik kasutades filtrid!
+        </Typography>
       ) : (
         <Paper sx={{ width: "100%", mb: 2 }}>
           <Typography
@@ -309,10 +305,10 @@ export default function EnhancedTable() {
             id="tableTitle"
             component="div"
           >
-            Märgi protseduurid, mida soovid saada e-postile
+            Protseduurid
           </Typography>
           <TableContainer>
-            <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
+            <Table sx={{ minWidth: 50 }} aria-labelledby="tableTitle">
               <EnhancedTableHead
                 numSelected={proceduresValue.length}
                 order={order}
@@ -362,7 +358,7 @@ export default function EnhancedTable() {
                         >
                           {procedure.proc_title_et}
                         </TableCell>
-                        <TableCell align="left">
+                        <TableCell align="right">
                           {procedure.proc_descr_et}
                         </TableCell>
                         <TableCell align="right">
@@ -383,7 +379,6 @@ export default function EnhancedTable() {
             </Table>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25]}
-              labelRowsPerPage={"Ridade arv lehekülje kohta"}
               component="div"
               count={procedures.length}
               rowsPerPage={rowsPerPage}

@@ -25,7 +25,8 @@ const { REACT_APP_API_URL } = process.env;
 function DropSymptoms(props) {
   const [symptoms, setSymptoms] = useState([]);
   const { symptomsValue, setSymptomsValue } = useContext(GlobalContext); // Catches chosen Symptoms in Dropdown
-  // Fetch Diseases in dropdown on Page load
+
+  // Fetch Symptoms in dropdown on PageLoad
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get(`${REACT_APP_API_URL}/symptoms/all/et`);

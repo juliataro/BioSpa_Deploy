@@ -11,12 +11,11 @@ import ReactTooltip from "react-tooltip";
 
 // Styling the input
 import { makeStyles } from "@material-ui/core/styles";
-
-// For fetching data
 import Grid from "@mui/material/Grid";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
+// Base url
 const { REACT_APP_API_URL } = process.env;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -26,7 +25,7 @@ function DropTargets() {
   const [targets, setTargets] = useState([]);
   const { targetsValue, setTargetsValue } = useContext(GlobalContext); // Catches chosen Targets in Dropdown
 
-  // Fetch Diseases in dropdown on Page load
+  // Fetch Targets in dropdown on PageLoad
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get(`${REACT_APP_API_URL}/targets/all/et`);

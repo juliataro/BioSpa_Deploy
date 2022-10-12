@@ -25,17 +25,22 @@ function DropDiseases() {
   const [diseases, setDiseases] = useState([]);
   const { diseasesValue, setDiseasesValue } = useContext(GlobalContext);
 
-  // const axiosInstance = axios.create({
-  //   baseURL: process.env.REACT_APP_API_URL,
-  // });
-
-  async function loadData() {
-    const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
-    setDiseases(response.data);
-  }
+  // Fetch Diseases in dropdown on Page load
   useEffect(() => {
+    const loadData = async () => {
+      const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
+      setDiseases(response.data);
+    };
     loadData();
   }, [setDiseases]);
+
+  // async function loadData() {
+  //   const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
+  //   setDiseases(response.data);
+  // }
+  // useEffect(() => {
+  //   loadData();
+  // }, [setDiseases]);
 
   // Handling Selected valjues
   function handleSelectChange(event, newValues) {
