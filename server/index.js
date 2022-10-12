@@ -22,9 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Redirect requests to endpoint starting with /entity to matching folders /route/file
-app.use("/", (req, res) => {
-  res.send("Hi");
-});
+
 app.use("/api/procedures", require("./routes/procedureRoutes"));
 app.use("/api/symptoms", require("./routes/symptomRoutes"));
 app.use("/api/targets", require("./routes/targetRoutes"));

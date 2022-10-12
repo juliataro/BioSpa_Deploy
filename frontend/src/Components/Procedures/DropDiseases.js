@@ -25,7 +25,7 @@ function DropDiseases() {
   const [diseases, setDiseases] = useState([]);
   const { diseasesValue, setDiseasesValue } = useContext(GlobalContext);
 
-  // Fetch Diseases in dropdown on Page load
+  // Fetch Diseases in dropdown on PageLoad
   useEffect(() => {
     const loadData = async () => {
       const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
@@ -33,14 +33,6 @@ function DropDiseases() {
     };
     loadData();
   }, [setDiseases]);
-
-  // async function loadData() {
-  //   const response = await axios.get(`${REACT_APP_API_URL}/diseases/all/et`);
-  //   setDiseases(response.data);
-  // }
-  // useEffect(() => {
-  //   loadData();
-  // }, [setDiseases]);
 
   // Handling Selected valjues
   function handleSelectChange(event, newValues) {

@@ -56,12 +56,6 @@ function RangeSlider() {
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
           />
-          <ReactTooltip
-            // Tooltip
-            className={classes.tooltip}
-            arrow
-            backgroundColor="#4e5154"
-          />
         </Grid>
         <Grid item>
           <Input
@@ -78,6 +72,12 @@ function RangeSlider() {
             }}
           />
         </Grid>
+        <ReactTooltip
+          // Tooltip
+          className={classes.tooltip}
+          arrow
+          backgroundColor="#4e5154"
+        />
       </Grid>
     </Box>
   );
