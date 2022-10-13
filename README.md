@@ -34,3 +34,4 @@ In /models/ there is contructor and methods with MySQL statements
 # Arguments
 
 Arguments are passed with Context API
+# BioSpaLocal
