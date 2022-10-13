@@ -13,7 +13,6 @@ const bodyParser = require("body-parser");
 var corsOptions = {
   origin: "http://localhost:3000",
 };
-
 // Allowing to make calls from frontend to backend api
 app.use(cors(corsOptions));
 
@@ -22,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Redirect requests to endpoint starting with /entity to matching folders /route/file
-
 app.use("/api/procedures", require("./routes/procedureRoutes"));
 app.use("/api/symptoms", require("./routes/symptomRoutes"));
 app.use("/api/targets", require("./routes/targetRoutes"));
