@@ -22,7 +22,7 @@ const { REACT_APP_API_URL } = process.env;
 //////////////////////////////////////////////////////////////////////////////
 
 //  TODO Extract list of diseases from db into dropdown list
-function DropSymptoms(props) {
+function DropSymptoms() {
   const [symptoms, setSymptoms] = useState([]);
   const { symptomsValue, setSymptomsValue } = useContext(GlobalContext); // Catches chosen Symptoms in Dropdown
 

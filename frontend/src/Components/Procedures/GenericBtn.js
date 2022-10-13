@@ -3,6 +3,7 @@ import { GlobalContext } from "./../../Context"; // Contecxt for providing props
 
 import axios from "axios";
 import Button from "@mui/material/Button";
+const { REACT_APP_API_URL } = process.env;
 
 const classes = {
   extractData: {
@@ -16,24 +17,23 @@ const classes = {
     marginBottom: "3rem",
   },
 };
+//const { REACT_APP_API_URL } = process.env;
 
-const GenericBtn = (props) => {
+const GenericBtn = () => {
   const { diseasesValue, setDiseasesValue } = useContext(GlobalContext); // Catches chosen Diseases in Dropdown
   const { targetsValue, setTargetsValue } = useContext(GlobalContext); // Catches chosen Targets in Dropdown
   const { symptomsValue, setSymptomsValue } = useContext(GlobalContext); // Catches chosen Targets in Dropdown
   const { pricesValue, setPricesValue } = useContext(GlobalContext); // Catches chosen Prices in Slider
   const { procedures, setProcedures } = useContext(GlobalContext); // Catches chosen Prices in Slider
-  const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-  });
+
   // Procedures on all filters
   const loadProcTargetsSymptoms = async () => {
     const idsTarQuery = targetsValue.map((n) => `tarIds=${n}`).join("&"); // Take props, mapp it and with query param join
     const idsSympQuery = symptomsValue.map((n) => `&sympIds=${n}`).join("&");
     const idsDisQuery = diseasesValue.map((n) => `&disIds=${n}`).join("&");
 
-    const response = await axiosInstance.get(
-      `procedures/procTarSymp?${idsTarQuery}${idsSympQuery}${idsDisQuery}&priceMax=${pricesValue}`
+    const response = await axios.get(
+      `${REACT_APP_API_URL}/procedures/procTarSymp?${idsTarQuery}${idsSympQuery}${idsDisQuery}&priceMax=${pricesValue}`
     );
 
     setProcedures(response.data);
