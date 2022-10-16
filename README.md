@@ -35,18 +35,20 @@ In /models/ there is contructor and methods with MySQL statements
 
 Arguments are passed with Context API
 
+# BioSpaLocal
+
 # File structure
 
-Frontend
+# Frontend
 
-1. Procedures.
+# 1. Procedures.
 
 - Page procedures consists of DropDown searh-bar components and ProcedureList components.
 - ProcedureList component consists of Search button - GenericBtn and EmailList components.
 - .env file constist of Environment variables
 - Docker file
 
-Server
+# Server
 
 - REST API entities and Routes that are required are keeping in index.js are addressing to ->
 - Routs file that consist of endpoint and required methods that are addressing to ->
