@@ -12,7 +12,7 @@ class Disease {
 
   // DropDown fetching functions
   static findByTitleEt() {
-    let sql = `SELECT dis_id, dis_title_et FROM diseases;`;
+    let sql = `SELECT dis_id, dis_title_et FROM diseases ORDER BY dis_title_et;`;
     return db.execute(sql);
   }
 }

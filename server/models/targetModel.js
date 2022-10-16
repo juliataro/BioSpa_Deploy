@@ -37,7 +37,7 @@ class Target {
   }
 
   static findByTitleEt() {
-    let sql = `SELECT tar_id, tar_title_et FROM targets;`;
+    let sql = `SELECT tar_id, tar_title_et FROM targets ORDER BY tar_title_et;`;
     return db.execute(sql);
   }
 }

@@ -73,7 +73,7 @@ function DropTargets() {
         {/* Dropdown element */}
         <Autocomplete
           onChange={handleSelectChange}
-          data-tip="Leia endale soovitatud protseduurid" // Tooltip text
+          data-tip="Leia oma eesmärgid sõnade järgi" // Tooltip text
           multiple={true}
           id="valueId"
           options={targets}

@@ -293,11 +293,9 @@ export default function EnhancedTable() {
           color="inherit"
           variant="h6"
           component="div"
-        >
-          Tee valik kasutades filtrid!
-        </Typography>
+        ></Typography>
       ) : (
-        <Paper sx={{ width: "100%", mb: 2 }}>
+        <Paper sx={{ width: "98%", mb: 2 }}>
           <Typography
             sx={{ flex: "1 1 100%" }}
             style={{ marginLeft: 15, paddingTop: 15 }}

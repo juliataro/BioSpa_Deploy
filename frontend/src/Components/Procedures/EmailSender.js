@@ -101,13 +101,13 @@ function EmailSender() {
         error={procValueErr}
         component="div"
         gutterBottom
-        mt={7}
-        mb={3}
+        mt={10}
+        mb={5}
       >
         {loading
           ? "Kiri on saadetud!"
           : setProcValueErr
-          ? "* Palun sisesta andmed"
+          ? "* Protseduuride saatmiseks e-mailile, palun valige protseduurid ja täidke lüngad!"
           : "-"}
       </Typography>
       <Grid container spacing={2}>

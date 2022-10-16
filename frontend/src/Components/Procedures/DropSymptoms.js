@@ -74,7 +74,7 @@ function DropSymptoms() {
         {/* Dropdown element */}
         <Autocomplete
           onChange={handleSelectChange}
-          data-tip="Leia endale soovitatud protseduurid" // Tooltip text
+          data-tip="Leia oma sümptomitele vastavad protseduurid" // Tooltip text
           multiple={true}
           id="valueId"
           options={symptoms}

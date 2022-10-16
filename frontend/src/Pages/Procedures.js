@@ -71,7 +71,7 @@ export const Procedures = () => {
         <Grid item xs={12} style={classes.intro}>
           {/* HEADER */}
           <div id="procedureTestIntroText" style={classes.sec}>
-            <Typography variant="h4" component="div" gutterBottom>
+            <Typography variant="h3" component="div" gutterBottom>
               Loodus BioSpa on eksklusiivne butiikspaa
             </Typography>
             {/* INTRO TEXT */}
@@ -92,21 +92,22 @@ export const Procedures = () => {
       <div id="searchProcedures" style={classes.secTwo}>
         <Typography
           style={classes.textsec}
-          variant="h4"
+          variant="h5"
           component="div"
           gutterBottom
         >
-          Otsi protseduure
+          Vali endale protseduure
         </Typography>
         <Typography
           id="filtersText"
           style={classes.textsec}
-          variant="h6"
+          fontSize="18px"
           component="div"
           gutterBottom
         >
-          Tee valik soovitud eesmärkide, olemasolevate kaebuste ja haiguste
-          hulgas ning määra hinnapiir.
+          Tee valik soovitud eesmärkide, olemasolevate kaebuste või haiguste
+          hulgas ning määra hinnapiir. Saad teha valiku ühe või mitme
+          otsinguriba vahel sõnade järgi.
         </Typography>
         {/*-------------------------- First row Targets and Symptoms ---------------------------- */}
         <Grid container spacing={2}>
