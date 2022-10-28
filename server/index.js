@@ -44,6 +44,6 @@ app.use((err, req, res, next) => {
 });
 
 // Listening for port cheking if serfer running, in terminal command: run indexjs
-app.listen(process.env.PORT || 5000, function () {
-  console.log(`Listening on port ${process.env.PORT}`);
+app.listen(process.env.SERVER_PORT || 5000, function () {
+  console.log(`Listening on port ${process.env.SERVER_PORT}`);
 });
