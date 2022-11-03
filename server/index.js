@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 // };
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: process.env.CLIENT_ORIGIN,
 };
 // Allowing to make calls from frontend to backend api
 app.use(cors(corsOptions));
@@ -19,6 +19,11 @@ app.use(cors(corsOptions));
 //Analise requests from req.body in this middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
 
 // Redirect requests to endpoint starting with /entity to matching folders /route/file
 app.use("/api/procedures", require("./routes/procedureRoutes"));

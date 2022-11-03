@@ -1,1 +1,14 @@
+/node_modules
+
 .history
+docker-compose.yml
+/nginx
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.env

@@ -1,0 +1,37 @@
+FROM node:19-alpine AS Production
+
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY server/package*.json ./
+RUN npm install -g nodemon && npm install
+RUN npm i dotenv
+
+COPY server ./
+
+ARG DB_HOST
+ENV DB_HOST=${DB_HOST}
+ 
+ARG DB_USER
+ENV DB_USER=${DB_USER}
+ 
+ARG DB_PASS
+ENV DB_PASS=${DB_PASS}
+ 
+ARG DB_NAME
+ENV DB_NAME=${DB_NAME}
+ 
+ARG DB_PORT
+ENV DB_PORT=${DB_PORT}
+ 
+ARG SERVER_PORT
+ENV SERVER_PORT=${SERVER_PORT}
+
+ARG SMTP_TO_EMAIL
+ENV SMTP_TO_EMAIL=$SMTP_TO_EMAIL
+
+ARG SMTP_TO_PASSWORD
+ENV SMTP_TO_PASSWORD=$SMTP_TO_PASSWORD
+
+RUN ls -l
+
+CMD ["npm", "run", "dev"]
